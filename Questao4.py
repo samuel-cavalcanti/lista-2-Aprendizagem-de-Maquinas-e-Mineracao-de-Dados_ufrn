@@ -67,11 +67,11 @@ def plot_history(history) -> None:
     plot_training("Training acc", "Validation acc", "Training and validation accuracy MNIST dataset", "Accuracy",
                   acc, val_acc, epochs)
 
-
+#TODO girar imagens e verifcar a classificação
+#https://towardsdatascience.com/building-a-convolutional-neural-network-cnn-in-keras-329fbbadc5f5
 if __name__ == '__main__':
     x_train, y_train, x_test, y_test = load_dataset()
     model = build_model(tuple([x_test.shape[1], x_test.shape[2], x_test.shape[-1]]), y_train.shape[-1])
     history = model.fit(x_train, y_train, batch_size=50, epochs=3, validation_data=(x_test, y_test))
     plot_history(history.history)
-    model.save("convNN")
-    
+    model.save("convNN")# val_acc = 0.973
