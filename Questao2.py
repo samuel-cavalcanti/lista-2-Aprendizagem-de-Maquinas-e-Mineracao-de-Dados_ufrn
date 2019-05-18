@@ -18,7 +18,7 @@ def plot_function(x: np.array, y: np.array, fig_name: str, y_true=None) -> None:
     else:
         pyplot.plot(x, y, "o", label="Y_pred")
         if y_true is not None:
-            pyplot.plot(x, y_true, "or", label="Y_true",markersize=1.5)
+            pyplot.plot(x, y_true, "or", label="Y_true", markersize=1.5)
             pyplot.legend()
 
     pyplot.savefig("graficos/" + fig_name, format="png")
@@ -44,7 +44,8 @@ def build_model_classifier(input_size: int, n_nodes: int) -> keras.models.Model:
     second_hidden_layer = keras.layers.Dense(n_nodes, activation=keras.activations.relu)(first_hidden_layer)
     output_layer = keras.layers.Dense(1, activation=keras.activations.sigmoid)(second_hidden_layer)
     model = keras.models.Model(inputs=input_layer, outputs=output_layer)
-    model.compile(optimizer="rmsprop", loss=keras.losses.binary_crossentropy, metrics=[keras.metrics.binary_accuracy])
+    model.compile(optimizer=keras.optimizers.RMSprop(lr=0.0001), loss=keras.losses.binary_crossentropy,
+                  metrics=[keras.metrics.binary_accuracy])
     return model
 
 
