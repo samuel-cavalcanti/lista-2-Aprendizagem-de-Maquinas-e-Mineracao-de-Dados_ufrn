@@ -1,5 +1,6 @@
 import keras
 import matplotlib.pyplot as pyplot
+from sklearn import metrics
 import numpy as np
 import cv2
 
@@ -91,7 +92,14 @@ def plot_history(history) -> None:
 if __name__ == '__main__':
     x_train, y_train, x_test, y_test = load_dataset()
 
-    model = build_model(tuple([x_test.shape[1], x_test.shape[2], x_test.shape[-1]]), y_train.shape[-1])
-    history = model.fit(x_train, y_train, batch_size=50, epochs=3, validation_data=(x_test, y_test))
-    plot_history(history.history)
+    # model = build_model(tuple([x_test.shape[1], x_test.shape[2], x_test.shape[-1]]), y_train.shape[-1])
+
+    # history = model.fit(x_train, y_train, batch_size=50, epochs=3, validation_data=(x_test, y_test))
+    # plot_history(history.history)
+    model = keras.models.load_model("convNN")
+    all_pred = model.predict(x_test)
+    y_pred = [str(np.argmax(pred)) for pred in all_pred]
+    y_true = [str(np.argmax(i)) for i in y_test]
+    matrix = metrics.confusion_matrix(y_true, y_pred, labels=["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"])
+    print(matrix)
     # model.save("convNN")# val_acc = 0.973
