@@ -66,6 +66,7 @@ as base de dados para serem usadas no treinamento
 | **8**   |  13   |  0            |  6     |  3    |  1    |  4    |   0   |   1   |  936  |  10   | 
 | **9**   |  3    |  4            |  0     |  2    |  13   |  5    |   0   |   1   |  4    |  977  | 
 
+*OBS:* A rede convolutiva conseguiu 97% de acurácia 
 
 ## Questão 5  
 Um problema interessante para testar a capacidade de uma rede neural atuar como classificador de padrões  
