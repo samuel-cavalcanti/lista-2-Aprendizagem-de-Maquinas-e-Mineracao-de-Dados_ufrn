@@ -146,7 +146,9 @@ Avalie o desempenho de sistema gerando a matriz de confusão
 
 ![deepEncoderLoos](graficos/deep%20encoder%20loss) 
 
-![vogaisLoss](graficos/vowels%20classifier%20loss)
+![vogaisLoss](graficos/Vowels%20Classifier%20loss)
+
+![vogaisAcc](graficos/Vowels%20Classifier%20accuracy)  
 
 ![Vogais](graficos/Vogais)   
 
@@ -159,3 +161,5 @@ Avalie o desempenho de sistema gerando a matriz de confusão
 | **I**   | 11  | 2   | 154 | 10  | 3  | 
 | **O**   | 4   | 7   | 3   | 205 | 6  | 
 | **U**   | 5   | 3   | 4   | 19  | 31 | 
+
+*OBS*: acurácia do modelo ficou em 89% 

@@ -159,6 +159,6 @@ U = 4
 
 if __name__ == '__main__':
     x, x_val, y_train, y_test = load_dataset("good_vowels.npz")
-    # train_classifier(x, x_val, y_train, y_test, "Autoencoder")
-    model = keras.models.load_model("autoencoder_classifier")
-    evaluete_classifier(model, x_val, keras.utils.to_categorical(y_test, 5))
+    train_classifier(x, x_val, y_train, y_test, "Autoencoder")
+    # model = keras.models.load_model("autoencoder_classifier")
+    # evaluete_classifier(model, x_val, keras.utils.to_categorical(y_test, 5))
