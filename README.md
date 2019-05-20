@@ -97,3 +97,65 @@ b-) Uma máquina de vetor de suporte (SVM)
 *OBS:* a deep learning conseguiu 100% de acurácia  
 e a no-linear SVN conseguiu 98% de acurácia 
 
+## Questão 6  
+Utilize uma a NARX no caso uma rede neural perceptron de múltiplas camadas  
+com realimentação para fazer a predição de um passo da série temporal:  
+x(n) = sin(n + sin²(n)).  
+
+Avalie o desempenho mostrando o erro de predição
+![NaRX](graficos/Temp%20series)
+![NarXLoss](graficos/Temp%20series%20loss)
+![NarXMAE](graficos/Temp%20series%20MAE)
+
+## Questão 7
+Considere dois sensores espacialmente distribuídos. Um sensor capta o sinal proveniente  
+de uma fonte de sinal e o outro sensor é dirigido para captar o sinal o ruído proveniente  
+de uma fonte de ruído indesejável. Os dois sensores captam um pouco de cada sinal.  
+O objetivo é cancelar o ruído que é captado pelo sensor dirigido para fonte de sinal.  
+Para modelar o problema considere as seguintes variáveis:  
+s(n): sinal discreto emitido pela fonte de sinal dado por:  
+s(n) = sen (0.075&pi;n)  
+x(n): o sinal captado pelo sensor dirigido para captar o sinal da fonte dado por:  
+x(n) = s(n) + v1(n)  
+y(n): o sinal captado pelo sensor dirigido para captar o sinal de ruído:  
+y(n) =v2(n) +0.05s(n)  
+v1(n):ruído captado pelo sensor 1 dado por:  
+v1(n) = -0.5v1(n-1)+v(n)  
+v2(n): ruído captado pelo sensor 2 dado por:  
+v2(n) = 0.8v2(n-1)+ v(n)  
+v(n): um ruído branco uniformemente distribuído com média nula e variância unitária.  
+
+Para remoção do ruído utilize um cancelador de ruído, isto é um sistema capaz de gerar o  
+ruído recebido pelo sensor que capta o sinal de interesse. Para isto utilize o perceptron  
+puramente linear treinado com o algoritmo LMS e em seguida uma rede perceptrons de  
+múltiplas camadas treinada com o algoritmo da backpropagation. Nos dois casos considere  
+como entrada os valores nos instantes n, n-1, n-2,n-3,n-4,n-5. Avalie o desempenho dos dois  
+canceladores.  
+![perceptronNoise](graficos/perceptron%20noise)
+![mplNoise](graficos/multi%20layer%20perceptron%20noise)
+![perceptronFont](graficos/perceptron%20font%20function)
+![mlpFont](graficos/multi%20layer%20perceptron%20font%20function)
+
+
+## Questão 8
+Considere o problema de reconhecimento de padrões constituído neste caso das vogais  
+do alfabeto, utilizando para isto uma rede neural deep learning formada por um stacked  
+de autoencoders. Represente as vogais através de matrizes de pixel binária. Teste a  
+robustez do sistema para situações onde as vogais estão ruidosas e com pequenas rotações.  
+Avalie o desempenho de sistema gerando a matriz de confusão 
+
+![deepEncoderLoos](graficos/deep%20encoder%20loss) 
+
+![vogaisLoss](graficos/vowels%20classifier%20loss)
+
+![Vogais](graficos/Vogais)   
+
+
+### Matrix de Confunsão
+| nan     | A   | E   | I   | O   | U  | 
+|---------|-----|-----|-----|-----|----| 
+| **A**   | 303 | 2   | 6   | 6   | 3  | 
+| **E**   | 8   | 248 | 8   | 14  | 3  | 
+| **I**   | 11  | 2   | 154 | 10  | 3  | 
+| **O**   | 4   | 7   | 3   | 205 | 6  | 
+| **U**   | 5   | 3   | 4   | 19  | 31 | 
