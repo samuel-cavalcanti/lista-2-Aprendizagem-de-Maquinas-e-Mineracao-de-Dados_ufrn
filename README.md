@@ -152,8 +152,35 @@ Avalie o desempenho de sistema gerando a matriz de confusão
 
 ![Vogais](graficos/Vogais)   
 
+## Classificador sem o Autoencoder:
 
-### Matrix de Confunsão
+### Matrix de Confunsão sem ruido:  
+
+| nan     | A   | E   | I   | O   | U  | 
+|---------|-----|-----|-----|-----|----| 
+| **A**   | 312 | 1   | 5   | 1   | 1  | 
+| **E**   | 10  | 262 | 5   | 2   | 2  | 
+| **I**   | 6   | 4   | 159 | 6   | 5  | 
+| **O**   | 3   | 3   | 3   | 213 | 3  | 
+| **U**   | 4   | 2   | 5   | 8   | 43 | 
+
+*OBS:* Acurácia do modelo ficou em torno de  93%
+
+### Matrix de confusão com ruido:  
+| nan     | A   | E    | I   | O   | U  | 
+|---------|-----|------|-----|-----|----| 
+| **A**   | 311 | 8    | 0   | 1   | 0  | 
+| **E**   | 21  | 259  | 0   | 1   | 0  | 
+| **I**   | 84  | 57   | 19  | 20  | 0  | 
+| **O**   | 34  | 25   | 1   | 164 | 1  | 
+| **U**   | 16  | 22   | 1   | 19  | 4  | 
+
+*OBS:* Acurácia do modelo ficou em torno de  70%
+
+## Classificador com Autoencoder
+
+### Matrix de Confunsão sem ruido:  
+
 | nan     | A   | E   | I   | O   | U  | 
 |---------|-----|-----|-----|-----|----| 
 | **A**   | 303 | 2   | 6   | 6   | 3  | 
@@ -162,4 +189,15 @@ Avalie o desempenho de sistema gerando a matriz de confusão
 | **O**   | 4   | 7   | 3   | 205 | 6  | 
 | **U**   | 5   | 3   | 4   | 19  | 31 | 
 
-*OBS*: acurácia do modelo ficou em 89% 
+*OBS*: Acurácia do modelo ficou em torno de  89% 
+
+### Matrix de confusão com ruido:  
+| nan     | A   | E   | I   | O   | U  | 
+|---------|-----|-----|-----|-----|----| 
+| **A**   | 291 | 4   | 13  | 10  | 2  | 
+| **E**   | 11  | 245 | 9   | 15  | 1  | 
+| **I**   | 17  | 4   | 150 | 6   | 3  | 
+| **O**   | 8   | 7   | 5   | 195 | 10 | 
+| **U**   | 7   | 3   | 2   | 23  | 27 | 
+
+*OBS:* Acurácia do modelo ficou em torno de  85%
