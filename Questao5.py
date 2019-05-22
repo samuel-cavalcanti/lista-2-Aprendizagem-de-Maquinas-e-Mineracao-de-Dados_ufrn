@@ -45,8 +45,11 @@ def generate_random_dataset(min_value: int, max_value: int, n_samples: int) -> (
 
 def build_model(input_shape: tuple, output_size: int) -> keras.Sequential:
     model = keras.Sequential()
-    model.add(keras.layers.Dense(120, activation="relu", input_shape=input_shape))
-    model.add(keras.layers.Dense(120, activation="relu"))
+    nodes = 20
+    model.add(keras.layers.Dense(nodes, activation="relu", input_shape=input_shape))
+    model.add(keras.layers.Dense(nodes, activation="relu"))
+    model.add(keras.layers.Dense(nodes, activation="relu"))
+    model.add(keras.layers.Dense(nodes, activation="relu"))
     model.add(keras.layers.Dense(output_size, activation=keras.activations.sigmoid))
     model.compile(optimizer="rmsprop", loss=keras.losses.binary_crossentropy, metrics=[keras.metrics.binary_accuracy])
     return model
@@ -68,7 +71,7 @@ def plot_training(label_train: str, label_val: str, title: str, y_label: str, tr
 def evaluate_deep_learning(n_epochs: int, x_train: np.array, y_train: np.array, x_test: np.array,
                            y_test: np.array) -> None:
     model = build_model(tuple([x_train.shape[-1]]), 1)
-    history = model.fit(x_train, y_train, batch_size=10, epochs=n_epochs, validation_data=(x_test, y_test)).history
+    history = model.fit(x_train, y_train, batch_size=20, epochs=n_epochs, validation_data=(x_test, y_test)).history
 
     acc = history["binary_accuracy"]
     val_acc = history["val_binary_accuracy"]
@@ -120,8 +123,8 @@ def evaluate_no_linear_svm(x_train: np.array, y_train: np.array, x_test: np.arra
 
 
 if __name__ == '__main__':
-    n_epochs = 1000
-    x_train, y_train = generate_dateset(0, 20, 100)
-    x_test, y_test = generate_dateset(0, 20, 500)
+    n_epochs = 200
+    x_train, y_train = generate_dateset(0, 20, 1000)
+    x_test, y_test = generate_dateset(0, 20, 5000)
     evaluate_deep_learning(n_epochs, x_train, y_train, x_test, y_test)
     evaluate_no_linear_svm(x_train, y_train, x_test, y_test)
