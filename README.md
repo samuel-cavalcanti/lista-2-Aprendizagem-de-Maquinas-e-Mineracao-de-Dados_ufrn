@@ -69,7 +69,7 @@ para cada um a matriz de confusão.
 | 0   | 1158 | 64  | 
 | 1   | 37  | 1741 | 
 
-*OBS:* A SVM conseguiu 97% de acurácia
+*OBS:* A Deep MLP conseguiu 97% de acurácia
 
 
 ## Questão 4
