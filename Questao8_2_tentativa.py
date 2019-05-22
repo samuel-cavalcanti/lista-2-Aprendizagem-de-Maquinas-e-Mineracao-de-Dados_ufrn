@@ -100,8 +100,9 @@ def build_the_classifier(autoencoder_input_shape: tuple, autoencoder_output_size
         layer.trainable = False
         classifier.add(layer)
     classifier.add(keras.layers.Reshape((20, 20, 1)))
-    classifier.add(keras.layers.Conv2D(64, kernel_size=3, activation=keras.activations.relu))
-    classifier.add(keras.layers.Conv2D(32, kernel_size=3, activation=keras.activations.relu))
+    classifier.add(keras.layers.Conv2D(80, kernel_size=3, activation=keras.activations.relu))
+    classifier.add(keras.layers.MaxPool2D())
+    classifier.add(keras.layers.Conv2D(40, kernel_size=3, activation=keras.activations.relu))
     classifier.add(keras.layers.Flatten())
     classifier.add(keras.layers.Dense(output_size_classifier, activation=keras.activations.softmax))
 
@@ -118,7 +119,7 @@ def train_classifier(x: np.array, x_test: np.array, y_train: np.array, y_test: n
     y_train = keras.utils.to_categorical(y_train, 5)
 
     model = build_the_classifier(x[0].shape, x[0].size, y_train[0].size, weights_file)
-    epochs = 50
+    epochs = 200
 
     history = model.fit(x, y_train, batch_size=20, epochs=epochs, validation_data=(x_test, y_test)).history
 
@@ -159,6 +160,8 @@ U = 4
 
 if __name__ == '__main__':
     x, x_val, y_train, y_test = load_dataset("good_vowels.npz")
+    # train_autoencoder(x, x_val, "Autoencoder")
+
     train_classifier(x, x_val, y_train, y_test, "Autoencoder")
     # model = keras.models.load_model("autoencoder_classifier")
     # evaluete_classifier(model, x_val, keras.utils.to_categorical(y_test, 5))

@@ -2,7 +2,7 @@ import os
 import cv2
 import numpy as np
 from sklearn.model_selection import train_test_split
-
+from keras import utils
 '''
 A = 0 I = 2
 E = 1 O = 3
@@ -30,12 +30,13 @@ def show_image(name_window: str, image: np.array) -> None:
 
 
 def image_to_binary(image: np.array) -> np.array:
-    resized_image = cv2.resize(image, (20, 20))
+    resized_image = cv2.resize(image, (25, 25))
     gray = cv2.cvtColor(resized_image, cv2.COLOR_BGR2GRAY)
     # binary_image = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C,
     #                                      cv2.THRESH_BINARY, 3, 1)
-    _, binary_image = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-    return binary_image
+    # _, binary_image = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    # show_image("image",gray)
+    return gray
 
 
 def pre_processing(dir_name: str) -> np.array:
@@ -51,6 +52,8 @@ def pre_processing(dir_name: str) -> np.array:
 
                 images.append(binary_image)
                 classes.append(type_class(root[-1]))
+                
+    classes = utils.to_categorical(classes,5)
 
     return np.array(images), np.array(classes)
 

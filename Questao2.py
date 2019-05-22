@@ -38,21 +38,29 @@ def plot_training(label_train: str, label_val: str, title: str, y_label: str, tr
     pyplot.show()
 
 
-def build_model_classifier(input_size: int, n_nodes: int) -> keras.models.Model:
-    input_layer = keras.layers.Input(shape=(input_size,))
-    first_hidden_layer = keras.layers.Dense(n_nodes, activation=keras.activations.relu)(input_layer)
-    second_hidden_layer = keras.layers.Dense(n_nodes, activation=keras.activations.relu)(first_hidden_layer)
-    output_layer = keras.layers.Dense(1, activation=keras.activations.sigmoid)(second_hidden_layer)
-    model = keras.models.Model(inputs=input_layer, outputs=output_layer)
+def build_model_classifier(input_shape: tuple, n_nodes: int, output_size: int) -> keras.models.Model:
+    model = keras.Sequential()
+    model.add(keras.layers.InputLayer(input_shape=input_shape))
+    model.add(keras.layers.Dense(n_nodes, activation=keras.activations.relu))
+    model.add(keras.layers.Dense(n_nodes, activation=keras.activations.relu))
+    model.add(keras.layers.Dense(n_nodes, activation=keras.activations.relu))
+    model.add(keras.layers.Dense(n_nodes, activation=keras.activations.relu))
+    model.add(keras.layers.Dense(output_size, activation=keras.activations.softmax))
+
     model.compile(optimizer=keras.optimizers.RMSprop(lr=0.0001), loss=keras.losses.binary_crossentropy,
                   metrics=[keras.metrics.binary_accuracy])
     return model
 
 
-def logic(x_1: np.array):
+def logic(x_1: np.array) -> np.array:
     y = list()
     for a, b, c in x_1:
-        y.append(int(a and b and c))
+        if a and b and c:
+            y.append(0)
+        elif a or b or c:
+            y.append(1)
+        else:
+            y.append(0)
 
     return np.array(y)
 
@@ -71,8 +79,10 @@ def pred_logic_function() -> None:
     n_epochs = 40
     x_train, y_train = data_logic(1000)
     x_test, y_test = data_logic(2500)
+    y_test = keras.utils.to_categorical(y_test, 2)
+    y_train = keras.utils.to_categorical(y_train, 2)
 
-    model = build_model_classifier(3, 20)
+    model = build_model_classifier(x_test[0].shape, 20, y_train[0].size)
     history = model.fit(x_train, y_train, epochs=n_epochs, batch_size=20, validation_data=(x_test, y_test)).history
 
     acc = history["binary_accuracy"]
@@ -93,17 +103,20 @@ g_x = lambda _x: np.cos(2 * np.pi * _x) / (1 - (4 * _x) ** 2) * np.sin(np.pi * _
 
 
 def g_x_data(n_samples: int) -> (np.array, np.array):
-    x = np.random.uniform(1e-9, 4 * np.pi, n_samples)
+    x = np.random.uniform(1e-99, 4 * np.pi, n_samples)
     return x, g_x(x)
 
 
-def build_model_regression(input_size: int, n_nodes: int) -> keras.models.Model:
-    input_layer = keras.layers.Input(shape=(input_size,))
-    first_hidden_layer = keras.layers.Dense(n_nodes, activation=keras.activations.relu)(input_layer)
-    second_hidden_layer = keras.layers.Dense(n_nodes, activation=keras.activations.relu)(first_hidden_layer)
-    output_layer = keras.layers.Dense(1)(second_hidden_layer)
-    model = keras.models.Model(inputs=input_layer, outputs=output_layer)
+def build_model_regression(input_shape: tuple, n_nodes: int) -> keras.Sequential:
+    model = keras.Sequential()
+    model.add(keras.layers.Dense(n_nodes, activation=keras.activations.relu, input_shape=input_shape))
+    model.add(keras.layers.Dense(n_nodes, activation=keras.activations.relu))
+    model.add(keras.layers.Dense(n_nodes, activation=keras.activations.relu))
+
+    model.add(keras.layers.Dense(n_nodes, activation=keras.activations.relu))
+    model.add(keras.layers.Dense(1))
     model.compile(optimizer="rmsprop", loss=keras.losses.mse, metrics=[keras.metrics.mae])
+
     return model
 
 
@@ -112,7 +125,7 @@ def pred_g_x() -> None:
     x_train, y_train = g_x_data(1000)
     x_test, y_test = g_x_data(2500)
 
-    model = build_model_regression(1, 20)
+    model = build_model_regression((1,), 20)
     history = model.fit(x_train, y_train, epochs=n_epochs, batch_size=20, validation_data=(x_test, y_test)).history
 
     loss = history["loss"]
@@ -169,6 +182,6 @@ def pred_h_x() -> None:
 
 
 if __name__ == '__main__':
-    pred_logic_function()
+    # pred_logic_function()
     pred_g_x()
-    pred_h_x()
+    # pred_h_x()

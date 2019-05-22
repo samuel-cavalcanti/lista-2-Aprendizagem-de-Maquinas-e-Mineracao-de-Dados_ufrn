@@ -27,7 +27,7 @@ c) f(x,y) = x² + y² + 2xycos(&pi;xy) + x + y -1
 
 ### 2.a Gráficos função logica
 ![logicLoss](graficos/Logic%20Function%20loss)
-![logicAcc](graficos/Logic%20Function%20accuracy)
+![logicAcc](graficos/Logic_Function_accuracy)
   
 ### 2.b f(x) = cos(2&pi;x)/(1-(4x)²)*sen(&pi;x)/(&pi;x)
 ![g_xLoss](graficos/g(x)%20loss)
@@ -38,7 +38,39 @@ c) f(x,y) = x² + y² + 2xycos(&pi;xy) + x + y -1
 ![h_xMAE](graficos/h(x)%20MAE)
 ![h_xpred](graficos/ModelPred_h(x))
 
-## Questão 3
+## Questão 3  
+Considere o problema de classificação de padrões bidimensionais constituído neste  
+caso de 5 padrões. A distribuição dos padrões tem como base um quadrado centrado na  
+origem interceptando os eixos nos pontos +1 e -1 de cada eixo. Os pontos +1 e -1 de cada  
+eixo são centros de quatro semicírculos que se interceptam no interior do quadrado originando  
+uma classe e a outra classe corresponde as regiões de não interseção. Após gerar  
+aleatoriamente os dados que venham formar estas distribuições de dados, selecione um conjunto  
+de treinamento e um conjunto de validação. Solucione este problema considerando:  
+
+a-) Um rede perceptron de múltiplas camada  
+b-) Uma máquina de vetor de suporte (SVM)  
+Apresente o desempenho dos classificadores usando o conjunto de validação e calculando
+para cada um a matriz de confusão.  
+
+![petalas](graficos/Questao3Classes.png)
+
+### Matrix de confusão da SVM
+| nan | 0   | 1    | 
+|-----|-----|------| 
+| 0   | 911 | 311  | 
+| 1   | 36  | 1742 |   
+
+*OBS:* A SVM conseguiu 88% de acurácia  
+
+
+### Matrix de confusão da MLP
+| nan | 0   | 1    | 
+|-----|-----|------| 
+| 0   | 1158 | 64  | 
+| 1   | 37  | 1741 | 
+
+*OBS:* A SVM conseguiu 97% de acurácia
+
 
 ## Questão 4
 Considere o problema de reconhecimento de padrões constituído neste caso de uma  
@@ -53,18 +85,19 @@ as base de dados para serem usadas no treinamento
 
 ### Matrix de confusão 
 
-| nan     | 0     | 1             | 2      | 3     | 4     | 5     | 6     | 7     | 8   | 9     | 
-|---------|-------|---------------|--------|-------|-------|-------|-------|-------|-------|-------| 
-| **0**   | 972   |  0            |  4     |  0    |  1    |  1    |   0   |   0   |   1   |   1   | 
-| **1**   |  0    |  1128         |  3     |  1    |  1    |  0    |   1   |   0   |   1   |   0   | 
-|  **2**  |  2    | 1             |  1011  |  4    | 2     |  0    |   0   |   8   |  2    |   2   | 
-| **3**   |  0    |  0            |  2     |  992  |  0    |  10   |   0   |   2   |   3   |   1   | 
-| **4**   |  0    |  0            |  6     |  0    |  961  |  0    |   1   |   0   |   2   |  12   | 
-|  **5**  |  1    |  0       |  1     |  0    |  888  |   1   |   0   |   1   |   0   |       | 
-| **6**   |  8    |  3            |  1     |  0    |  2    |  10   |  928  |   0   |   6   |   0   | 
-|  **7**  |  0    |  1            |  10    |  5    |  5    |  0    |   0   |  991  |   5   |  11   | 
-| **8**   |  13   |  0            |  6     |  3    |  1    |  4    |   0   |   1   |  936  |  10   | 
-| **9**   |  3    |  4            |  0     |  2    |  13   |  5    |   0   |   1   |  4    |  977  | 
+| nan     | 0   | 1    | 2  | 3   | 4   | 5   | 7   | 7   | 8   | 9   | 
+|---------|-----|------|----|-----|-----|-----|-----|-----|-----|-----| 
+| **0**   | 974 | 0    | 3  | 0   | 0   | 1   | 0   | 1   | 1   | 0   | 
+| **1**   | 1   | 1125 | 3  | 1   | 0   | 0   | 3   | 0   | 2   | 0   | 
+| **2**   | 1.0 | 1012 | 1  | 2   | 0   | 0   | 8   | 6   | 2   | 0   | 
+| **3**   | 0   | 0    | 4  | 991 | 0   | 8   | 0   | 2   | 3   | 2   | 
+| **4**   | 1   | 0    | 5  | 0   | 958 | 0   | 3   | 0   | 2   | 13  | 
+| **5**   | 1   | 0    | 0  | 1   | 0   | 888 | 1   | 0   | 1   | 0   | 
+| **6**   | 9   | 4    | 0  | 0   | 3   | 8   | 927 | 0   | 7   | 0   | 
+| **7**   | 0   | 2    | 12 | 4   | 3   | 1   | 0   | 992 | 2   | 12  | 
+| **8**   | 12  | 0    | 7  | 3   | 2   | 3   | 0   | 0   | 939 | 8   | 
+| **9**   | 3   | 5    | 0  | 2   | 10  | 6   | 0   | 1   | 3   | 979 | 
+
 
 *OBS:* A rede convolutiva conseguiu 97% de acurácia 
 
