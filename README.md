@@ -1,4 +1,6 @@
 # Machine-Learning
+*Samuel Cavalcanti*  
+https://github.com/samuel-cavalcanti
 
 ## Questão 1
 Considere o problema de classificação de padrões constituído de duas classes 
