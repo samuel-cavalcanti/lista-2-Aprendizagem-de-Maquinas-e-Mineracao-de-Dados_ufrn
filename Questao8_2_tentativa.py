@@ -59,7 +59,7 @@ def build_autoencoder_model(input_shape: tuple, output_nodes: int) -> keras.Sequ
 def show_image(name_window: str, image: np.array) -> None:
     cv2.namedWindow(name_window, cv2.WINDOW_NORMAL)
     cv2.imshow(name_window, image)
-    cv2.waitKey(0)
+    cv2.waitKey(-1)
 
 
 def reshape_to_plot(y_pred: np.array, y_true: np.array) -> (np.array, np.array):
@@ -159,9 +159,9 @@ U = 4
 '''
 
 if __name__ == '__main__':
-    x, x_val, y_train, y_test = load_dataset("good_vowels.npz")
+    x, x_val, y_train, y_test = load_dataset("Dataset_Questao8/good_vowels.npz")
     # train_autoencoder(x, x_val, "Autoencoder")
 
-    train_classifier(x, x_val, y_train, y_test, "Autoencoder")
+    train_classifier(x, x_val, y_train, y_test, "Redes_Salvas/Autoencoder")
     # model = keras.models.load_model("autoencoder_classifier")
     # evaluete_classifier(model, x_val, keras.utils.to_categorical(y_test, 5))

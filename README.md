@@ -139,13 +139,13 @@ b-) Uma máquina de vetor de suporte (SVM)
 ![SVM](graficos/SVM_decision_function.png)
 
 ### Matrix de confusão
-| nan | 0   | 1   | 
-|-----|-----|-----| 
-| 0   | 490 | 10  | 
-| 1   | 10  | 490 | 
+| nan | 0    | 1    | 
+|-----|------|------| 
+| 0   | 5000 | 0    | 
+| 1   | 0    | 5000 | 
 
 *OBS:* a deep learning conseguiu 100% de acurácia  
-e a no-linear SVN conseguiu 98% de acurácia 
+*OBS:* a no-linear SVN conseguiu 100% de acurácia 
 
 ## Questão 6  
 Utilize uma a NARX no caso uma rede neural perceptron de múltiplas camadas  
@@ -194,13 +194,21 @@ de autoencoders. Represente as vogais através de matrizes de pixel binária. Te
 robustez do sistema para situações onde as vogais estão ruidosas e com pequenas rotações.  
 Avalie o desempenho de sistema gerando a matriz de confusão 
 
+![exemploDataset](graficos/DatasetVogais.png)
+
+
+### Exemplo do dataset depois do binariação  
+### das imagens 
+
+![binaryExemple](graficos/preprocessing.png)
+
 ![deepEncoderLoos](graficos/deep%20encoder%20loss) 
 
 ![vogaisLoss](graficos/Vowels%20Classifier%20loss)
 
 ![vogaisAcc](graficos/Vowels%20Classifier%20accuracy)  
 
-![Vogais](graficos/Vogais)   
+![Vogais](graficos/Vogais.png)   
 
 ## Classificador sem o Autoencoder:
 

@@ -129,7 +129,7 @@ def test_offline(model: keras.models.Model):
 if __name__ == '__main__':
     model = keras.applications.VGG16()
 
-    # test_offline(model)
+    test_offline(model)
 
-    test_online(model)
+    # test_online(model)
 

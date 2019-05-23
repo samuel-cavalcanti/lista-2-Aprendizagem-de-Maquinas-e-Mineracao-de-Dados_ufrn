@@ -119,12 +119,12 @@ def evaluate_no_linear_svm(x_train: np.array, y_train: np.array, x_test: np.arra
     matrix = metrics.confusion_matrix(y_test, y_pred, labels=[0, 1])
     print(result)
     print(matrix)
-    plot_svm_decision_function(svm, x_test, y_test, "SVM decision function")
+    # plot_svm_decision_function(svm, x_test, y_test, "SVM decision function")
 
 
 if __name__ == '__main__':
     n_epochs = 200
     x_train, y_train = generate_dateset(0, 20, 1000)
     x_test, y_test = generate_dateset(0, 20, 5000)
-    evaluate_deep_learning(n_epochs, x_train, y_train, x_test, y_test)
-    # evaluate_no_linear_svm(x_train, y_train, x_test, y_test)
+    # evaluate_deep_learning(n_epochs, x_train, y_train, x_test, y_test)
+    evaluate_no_linear_svm(x_train, y_train, x_test, y_test)

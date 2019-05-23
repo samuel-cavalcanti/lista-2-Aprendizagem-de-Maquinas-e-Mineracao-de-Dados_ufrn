@@ -162,14 +162,14 @@ if __name__ == '__main__':
     for layer in encoded:
         model.add(layer)
 
-    for layer in reversed(decoded):
-        model.add(layer)
+    # for layer in reversed(decoded):
+    #     model.add(layer)
 
 
-    # chars = [type_to_char(n) for n in y_train]
-
+    chars = [type_to_char(n) for n in y_train]
+    #
     y = model.predict(val_x)
 
-    # plot_3d(y, chars, "vogal pos")
+    plot_3d(y, chars, "vogal pos")
 
-    show_ypred(y,val_x)
+    # show_ypred(y,val_x)
