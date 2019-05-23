@@ -29,17 +29,19 @@ c) f(x,y) = x² + y² + 2xycos(&pi;xy) + x + y -1
 ![logicLoss](graficos/Logic%20Function%20loss)
 ![logicAcc](graficos/Logic_Function_accuracy)
   
-### 2.b f(x) = cos(2&pi;x)/(1-(4x)²)*sen(&pi;x)/(&pi;x)
-![g_xLoss](graficos/g(x)%20loss)
-![g_xMAE](graficos/g(x)%20MAE)
-![g_xpred](graficos/ModelPred_g(x))
+### 2.b f(x) = cos(2&pi;x)/(1-(4x)²)*sen(&pi;x)/(&pi;x)  
+
+![g_xLoss](graficos/g(x)%20loss)  
+![g_xMAE](graficos/g(x)%20MAE)  
+![g_xpred](graficos/ModelPred_g(x))  
+
 ### 2.c f(x,y) = x² + y² + 2xycos(&pi;xy) + x + y -1  
-![h_xLoss](graficos/h(x)%20loss)
-![h_xMAE](graficos/h(x)%20MAE)
-![h_xpred](graficos/ModelPred_h(x))
+![h_xLoss](graficos/h(x)%20loss)  
+![h_xMAE](graficos/h(x)%20MAE)  
+![h_xpred](graficos/ModelPred_h(x))  
 
 ## Questão 3  
-Considere o problema de classificação de padrões bidimensionais constituído neste  
+Considere o problema de classificação    de padrões bidimensionais constituído neste  
 caso de 5 padrões. A distribuição dos padrões tem como base um quadrado centrado na  
 origem interceptando os eixos nos pontos +1 e -1 de cada eixo. Os pontos +1 e -1 de cada  
 eixo são centros de quatro semicírculos que se interceptam no interior do quadrado originando  
@@ -55,19 +57,19 @@ para cada um a matriz de confusão.
 ![petalas](graficos/Questao3Classes.png)
 
 ### Matrix de confusão da SVM
-| nan | 0   | 1    | 
+| nan |**0**| **1**| 
 |-----|-----|------| 
-| 0   | 911 | 311  | 
-| 1   | 36  | 1742 |   
+|**0**| 911 | 311  | 
+|**1**| 36  | 1742 |   
 
 *OBS:* A SVM conseguiu 88% de acurácia  
 
 
 ### Matrix de confusão da MLP
-| nan | 0   | 1    | 
+| nan |**0**| **1**| 
 |-----|-----|------| 
-| 0   | 1158 | 64  | 
-| 1   | 37  | 1741 | 
+|**0**| 1158| 64   | 
+|**1**| 37  | 1741 | 
 
 *OBS:* A Deep MLP conseguiu 97% de acurácia
 
@@ -78,14 +80,16 @@ deep learning, no caso uma rede convolutiva capaz de reconhecer os números:
 0, 1,2,3 ..., 9 , mesmo que estes tenham um pequeno giro de até 10 graus.  
 Avalie o desempenho de sistema gerando a matriz de confusão. Pesquise  
 as base de dados para serem usadas no treinamento  
-### gráficos de convergência da rede convolutiva
-![MnistLoss](graficos/Training%20and%20validation%20loss%20MNIST%20dataset)
-![MnistAcc](graficos/Training%20and%20validation%20accuracy%20MNIST%20dataset)
+
+### gráficos de convergência da rede convolutiva  
+
+![MnistLoss](graficos/Training%20and%20validation%20loss%20MNIST%20dataset)  
+![MnistAcc](graficos/Training%20and%20validation%20accuracy%20MNIST%20dataset)  
 
 
 ### Matrix de confusão sem rotação:
 
-| nan     | 0   | 1    | 2    | 3    | 4   | 5   | 6   | 7    | 8   | 9   | 
+| nan     |**0**| **1**|**2**|**3** |**4**|**5**|**6**|**7** |**8**|**9**| 
 |---------|-----|------|------|------|-----|-----|-----|------|-----|-----| 
 | **0**   | 978 | 0    | 1    | 0    | 0   | 0   | 0   | 1    | 0   | 0   | 
 | **1**   | 0   | 1132 | 2    | 1    | 0   | 0   | 0   | 0    | 0   | 0   | 
@@ -102,7 +106,7 @@ A rede convolutiva conseguiu 99% de acurácia
 
 ### Matrix de confusão com rotação:
 
-| nan      | 0   | 1    | 2   | 3    | 4   | 5   | 6   | 7    | 8   | 9   | 
+| nan      |**0**| **1**|**2**|**3** |**4**|**5**|**6**|**7** |**8**|**9**| 
 |----------|-----|------|-----|------|-----|-----|-----|------|-----|-----| 
 | **0**    | 973 | 0    | 1   | 0    | 0   | 0   | 2   | 3    | 0   | 1   | 
 | **1**    | 0   | 1130 | 1   | 2    | 0   | 2   | 0   | 0    | 0   | 0   | 
@@ -139,10 +143,10 @@ b-) Uma máquina de vetor de suporte (SVM)
 ![SVM](graficos/SVM_decision_function.png)
 
 ### Matrix de confusão
-| nan | 0    | 1    | 
-|-----|------|------| 
-| 0   | 5000 | 0    | 
-| 1   | 0    | 5000 | 
+| nan     | **0**    | **1**    | 
+|---------|----------|----------| 
+| **0**   | 5000     | 0        | 
+| **1**   | 0        | 5000     | 
 
 *OBS:* a deep learning conseguiu 100% de acurácia  
 *OBS:* a no-linear SVN conseguiu 100% de acurácia 
@@ -152,10 +156,11 @@ Utilize uma a NARX no caso uma rede neural perceptron de múltiplas camadas
 com realimentação para fazer a predição de um passo da série temporal:  
 x(n) = sin(n + sin²(n)).  
 
-Avalie o desempenho mostrando o erro de predição
-![NaRX](graficos/Temp%20series)
-![NarXLoss](graficos/Temp%20series%20loss)
-![NarXMAE](graficos/Temp%20series%20MAE)
+Avalie o desempenho mostrando o erro de predição  
+
+![NaRX](graficos/Temp%20series)  
+![NarXLoss](graficos/Temp%20series%20loss)  
+![NarXMAE](graficos/Temp%20series%20MAE)  
 
 ## Questão 7
 Considere dois sensores espacialmente distribuídos. Um sensor capta o sinal proveniente  
@@ -214,24 +219,24 @@ Avalie o desempenho de sistema gerando a matriz de confusão
 
 ### Matrix de Confunsão sem ruido:  
 
-| nan     | A   | E   | I   | O   | U  | 
-|---------|-----|-----|-----|-----|----| 
-| **A**   | 312 | 1   | 5   | 1   | 1  | 
-| **E**   | 10  | 262 | 5   | 2   | 2  | 
-| **I**   | 6   | 4   | 159 | 6   | 5  | 
-| **O**   | 3   | 3   | 3   | 213 | 3  | 
-| **U**   | 4   | 2   | 5   | 8   | 43 | 
+| nan     | **A** | **E**     | **I**    | **O**    | **U**   | 
+|---------|-------|-----------|----------|----------|---------| 
+| **A**   | 312   | 1         | 5        | 1        | 1       | 
+| **E**   | 10    | 262       | 5        | 2        | 2       | 
+| **I**   | 6     | 4         | 159      | 6        | 5       | 
+| **O**   | 3     | 3         | 3        | 213      | 3       | 
+| **U**   | 4     | 2         | 5        | 8        | 43      | 
 
 *OBS:* Acurácia do modelo ficou em torno de  93%
 
 ### Matrix de confusão com ruido:  
-| nan     | A   | E    | I   | O   | U  | 
-|---------|-----|------|-----|-----|----| 
-| **A**   | 311 | 8    | 0   | 1   | 0  | 
-| **E**   | 21  | 259  | 0   | 1   | 0  | 
-| **I**   | 84  | 57   | 19  | 20  | 0  | 
-| **O**   | 34  | 25   | 1   | 164 | 1  | 
-| **U**   | 16  | 22   | 1   | 19  | 4  | 
+| nan     | **A** | **E**     | **I**    | **O**    | **U**   | 
+|---------|-------|-----------|----------|----------|---------| 
+| **A**   | 311   | 8         | 0        | 1        | 0       | 
+| **E**   | 21    | 259       | 0        | 1        | 0       | 
+| **I**   | 84    | 57        | 19       | 20       | 0       | 
+| **O**   | 34    | 25        | 1        | 164      | 1       | 
+| **U**   | 16    | 22        | 1        | 19       | 4       | 
 
 *OBS:* Acurácia do modelo ficou em torno de  70%
 
@@ -239,23 +244,23 @@ Avalie o desempenho de sistema gerando a matriz de confusão
 
 ### Matrix de Confunsão sem ruido:  
 
-| nan     | A   | E   | I   | O   | U  | 
-|---------|-----|-----|-----|-----|----| 
-| **A**   | 303 | 2   | 6   | 6   | 3  | 
-| **E**   | 8   | 248 | 8   | 14  | 3  | 
-| **I**   | 11  | 2   | 154 | 10  | 3  | 
-| **O**   | 4   | 7   | 3   | 205 | 6  | 
-| **U**   | 5   | 3   | 4   | 19  | 31 | 
+| nan     | **A**    | **E**    | **I**   | **O**    | **U**  | 
+|---------|----------|----------|---------|----------|--------| 
+| **A**   | 303      | 2        | 6       | 6        | 3      | 
+| **E**   | 8        | 248      | 8       | 14       | 3      | 
+| **I**   | 11       | 2        | 154     | 10       | 3      | 
+| **O**   | 4        | 7        | 3       | 205      | 6      | 
+| **U**   | 5        | 3        | 4       | 19       | 31     | 
 
 *OBS*: Acurácia do modelo ficou em torno de  89% 
 
 ### Matrix de confusão com ruido:  
-| nan     | A   | E   | I   | O   | U  | 
-|---------|-----|-----|-----|-----|----| 
-| **A**   | 291 | 4   | 13  | 10  | 2  | 
-| **E**   | 11  | 245 | 9   | 15  | 1  | 
-| **I**   | 17  | 4   | 150 | 6   | 3  | 
-| **O**   | 8   | 7   | 5   | 195 | 10 | 
-| **U**   | 7   | 3   | 2   | 23  | 27 | 
+| nan     | **A**   | **E**   | **I**   | **O**   | **U**  | 
+|---------|---------|---------|---------|---------|--------| 
+| **A**   | 291     | 4       | 13      | 10      | 2      | 
+| **E**   | 11      | 245     | 9       | 15      | 1      | 
+| **I**   | 17      | 4       | 150     | 6       | 3      | 
+| **O**   | 8       | 7       | 5       | 195     | 10     | 
+| **U**   | 7       | 3       | 2       | 23      | 27     | 
 
 *OBS:* Acurácia do modelo ficou em torno de  85%
