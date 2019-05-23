@@ -24,7 +24,7 @@ spiral_1 = lambda theta: ((theta / 4 + 0.8) * np.cos(theta), (theta / 4 + 0.8) *
 
 
 def generate_dateset(min_value: int, max_value: int, n_samples: int) -> (np.array, np.array):
-    theta = np.linspace(min_value, max_value, n_samples)
+    theta = np.random.uniform(min_value, max_value, n_samples)
 
     spiral_0_data = np.array(list(spiral_0(theta))).T
     spiral_1_data = np.array(list(spiral_1(theta))).T
@@ -112,7 +112,7 @@ def plot_svm_decision_function(svm: SVM.NuSVR, x_test: np.array, y_test: np.arra
 
 
 def evaluate_no_linear_svm(x_train: np.array, y_train: np.array, x_test: np.array, y_test: np.array):
-    svm = SVM.NuSVC(gamma="auto")
+    svm = SVM.NuSVC(gamma=5)
     svm.fit(x_train, y_train)
     y_pred = svm.predict(x_test)
     result = metrics.accuracy_score(y_test, y_pred)
@@ -127,4 +127,4 @@ if __name__ == '__main__':
     x_train, y_train = generate_dateset(0, 20, 1000)
     x_test, y_test = generate_dateset(0, 20, 5000)
     evaluate_deep_learning(n_epochs, x_train, y_train, x_test, y_test)
-    evaluate_no_linear_svm(x_train, y_train, x_test, y_test)
+    # evaluate_no_linear_svm(x_train, y_train, x_test, y_test)

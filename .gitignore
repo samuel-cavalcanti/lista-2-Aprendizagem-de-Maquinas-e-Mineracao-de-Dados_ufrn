@@ -1,2 +1,4 @@
 .idea/
 __pycache__/
+faster_R_CNN/vgg16_weights_tf_dim_ordering_tf_kernels.h5
+faster_R_CNN/data/
