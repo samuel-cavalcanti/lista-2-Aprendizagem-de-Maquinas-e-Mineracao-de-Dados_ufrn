@@ -215,6 +215,9 @@ Avalie o desempenho de sistema gerando a matriz de confusão
 
 ![vogaisAcc](graficos/Vowels%20Classifier%20accuracy)  
 
+![vogaisAutoLoss](graficos/Vowels%20Classifier%20with%20Autoencoder%20loss)
+![vogiasAutoACC](graficos/Vowels%20Classifier%20with%20Autoencoder%20accuracy)
+
 ![Vogais](graficos/Vogais.png)   
 
 ## Classificador sem o Autoencoder:
@@ -229,7 +232,7 @@ Avalie o desempenho de sistema gerando a matriz de confusão
 | **O**   | 3     | 3         | 3        | 213      | 3       | 
 | **U**   | 4     | 2         | 5        | 8        | 43      | 
 
-*OBS:* Acurácia do modelo ficou em torno de  93%
+*OBS:* Acurácia do modelo ficou em torno de  95%
 
 ### Matrix de confusão com ruido:  
 | nan     | **A** | **E**     | **I**    | **O**    | **U**   | 

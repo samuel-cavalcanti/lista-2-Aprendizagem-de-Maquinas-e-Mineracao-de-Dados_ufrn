@@ -114,11 +114,23 @@ def build_the_classifier(autoencoder_input_shape: tuple, autoencoder_output_size
     return classifier
 
 
-def train_classifier(x: np.array, x_test: np.array, y_train: np.array, y_test: np.array, weights_file: str):
-    y_test = keras.utils.to_categorical(y_test, 5)
-    y_train = keras.utils.to_categorical(y_train, 5)
+def build_simple_conv_classifier(input_shape: tuple, output_size: int) -> keras.Sequential:
+    classifier = keras.Sequential()
+    classifier.add(keras.layers.InputLayer(input_shape=input_shape))
+    classifier.add(keras.layers.Reshape((20, 20, 1)))
+    classifier.add(keras.layers.Conv2D(80, kernel_size=3, activation=keras.activations.relu))
+    classifier.add(keras.layers.MaxPool2D())
+    classifier.add(keras.layers.Conv2D(40, kernel_size=3, activation=keras.activations.relu))
+    classifier.add(keras.layers.Flatten())
+    classifier.add(keras.layers.Dense(output_size, activation=keras.activations.softmax))
 
-    model = build_the_classifier(x[0].shape, x[0].size, y_train[0].size, weights_file)
+    classifier.compile(optimizer=keras.optimizers.adam(0.001), loss=keras.losses.categorical_crossentropy,
+                       metrics=["accuracy"])
+
+    return classifier
+
+
+def train_classifier(x: np.array, x_test: np.array, y_train: np.array, y_test: np.array, model: keras.Sequential):
     epochs = 200
 
     history = model.fit(x, y_train, batch_size=20, epochs=epochs, validation_data=(x_test, y_test)).history
@@ -160,8 +172,11 @@ U = 4
 
 if __name__ == '__main__':
     x, x_val, y_train, y_test = load_dataset("Dataset_Questao8/good_vowels.npz")
+    y_train_categorical = keras.utils.to_categorical(y_train, 5)
+    y_test_Categorical = keras.utils.to_categorical(y_test, 5)
+    model = build_simple_conv_classifier(x[0].shape, y_train_categorical[0].size)
     # train_autoencoder(x, x_val, "Autoencoder")
 
-    train_classifier(x, x_val, y_train, y_test, "Redes_Salvas/Autoencoder")
+    train_classifier(x, x_val, y_train_categorical, y_test_Categorical, model)
     # model = keras.models.load_model("autoencoder_classifier")
     # evaluete_classifier(model, x_val, keras.utils.to_categorical(y_test, 5))
