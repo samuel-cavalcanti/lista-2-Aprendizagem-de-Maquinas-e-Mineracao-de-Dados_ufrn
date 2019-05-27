@@ -1,4 +1,4 @@
-# Machine-Learning
+# segunda Lista Aprendizagem de Maquina e Mineração de dados
 *Samuel Cavalcanti*  
 https://github.com/samuel-cavalcanti
 
