@@ -283,7 +283,7 @@ de conversão voz texto.
 
 
 
-O meu trabalho Escolhido foi sobre a rede convolutiva aplicada ao reconhecimento de objetos em  
+O trabalho Escolhido foi sobre a rede convolutiva aplicada ao reconhecimento de objetos em  
 uma imagem.  
 após uma pesquisa na internet. Encontrei informações sobre um dataset chamado ImageNet.  
 A partir desse dataset é feito uma das maiores competições sobre reconhecimento de objetos  
