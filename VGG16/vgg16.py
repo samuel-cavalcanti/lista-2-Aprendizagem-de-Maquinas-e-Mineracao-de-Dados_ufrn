@@ -64,25 +64,27 @@ def build_model(weights_path="None") -> keras.Sequential:
 
 
 def load_data() -> (np.array, np.array, np.array):
-    car = cv2.imread("car.jpg")
-    phone = cv2.imread("phone.jpg")
-    dog = cv2.imread("dog.jpg")
-    cat_1 = cv2.imread("cat.jpg")
-    cat_2 = cv2.imread("cat_like_dog.jpg")
-    plant = cv2.imread("plant.jpg")
-    beagle = cv2.imread("Beagle.jpg")
+    dir_name = "input_images/"
+    car = cv2.imread(dir_name + "car.jpg")
+    phone = cv2.imread(dir_name + "phone.jpg")
+    dog = cv2.imread(dir_name + "dog.jpg")
+    cat_1 = cv2.imread(dir_name + "cat.jpg")
+    cat_2 = cv2.imread(dir_name + "cat_like_dog.jpg")
+    plant = cv2.imread(dir_name + "plant.jpg")
+    beagle = cv2.imread(dir_name + "Beagle.jpg")
 
     return [car, phone, dog, cat_1, cat_2, plant, beagle]
 
 
 def show_images(name_window: str, images: list, labels: list) -> None:
+    dir_name = "output_images/"
     for i, image in enumerate(images):
         window = name_window + str(i)
         cv2.namedWindow(window, cv2.WINDOW_NORMAL)
         for j, text in enumerate(labels[i]):
             cv2.putText(image, text, (image.shape[1] // 2 - 100, 50 + 50 * j), 3, 1, (0, 255, 0), 2)
         cv2.imshow(window, image)
-        cv2.imwrite(window + ".png", image)
+        cv2.imwrite(dir_name + window + ".png", image)
     cv2.waitKey(0)
 
 
