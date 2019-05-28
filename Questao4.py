@@ -91,11 +91,11 @@ def plot_history(history) -> None:
     acc = history["acc"]
     epochs = range(1, len(acc) + 1)
 
-    plot_training("Training loss", "Validation loss", "Training and validation loss MNIST dataset", "Loss",
-                  loss, val_loss, epochs)
-
-    plot_training("Training acc", "Validation acc", "Training and validation accuracy MNIST dataset", "Accuracy",
-                  acc, val_acc, epochs)
+    # plot_training("Training loss", "Validation loss", "Training and validation loss MNIST dataset", "Loss",
+    #               loss, val_loss, epochs)
+    #
+    # plot_training("Training acc", "Validation acc", "Training and validation accuracy MNIST dataset", "Accuracy",
+    #               acc, val_acc, epochs)
 
 
 def training_deep_learning(x_train: np.array, y_train: np.array, x_test: np.array,
@@ -124,7 +124,7 @@ def evaluate_deep_learning(model: keras.Sequential, x_test: np.array, y_test: np
 if __name__ == '__main__':
     x_train, y_train, x_test, y_test = load_dataset()
 
-    # model = training_deep_learning(x_train, y_train, x_test, y_test)
+    model = training_deep_learning(x_train, y_train, x_test, y_test)
     # model.save("Redes_Salvas/Questao4_convNN")
-    model = keras.models.load_model("Redes_Salvas/Questao4_convNN")
-    evaluate_deep_learning(model, x_test, y_test)
+    # model = keras.models.load_model("Redes_Salvas/Questao4_convNN")
+    # evaluate_deep_learning(model, x_test, y_test)

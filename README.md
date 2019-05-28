@@ -269,3 +269,60 @@ Avalie o desempenho de sistema gerando a matriz de confusão
 | **U**   | 7       | 3       | 2       | 23      | 27     | 
 
 *OBS:* Acurácia do modelo ficou em torno de  85%
+
+
+## Trabalho  
+
+Trabalho: Escolha um dos trabalhos abaixo: 
+ 
+1-) Pesquize e apresente um trabalho sobre Deep Learning com foco na rede convolutiva  
+aplicada ao reconhecimento de objetos em uma imagem.  
+
+2-) Pesquise e apresente um trabalho sobre a rede neural LSTM com foco em aplicações  
+de conversão voz texto.  
+
+
+
+O meu trabalho Escolhido foi sobre a rede convolutiva aplicada ao reconhecimento de objetos em  
+uma imagem.  
+após uma pesquisa na internet. Encontrei informações sobre um dataset chamado ImageNet.  
+A partir desse dataset é feito uma das maiores competições sobre reconhecimento de objetos  
+em imagens do mundo (ImageNet Large Scale Visual Recognition Competition ou ILSVRC). 
+  
+Então me desafiei a implementar a rede convolucional campeã de 2014 desse campeonado  
+a rede VGG16. Como o custo de treinar essa rede neural é muito elevado, não foi possível  
+treinar a rede, mas foi encontrado os pesos dela utilizado na competição. Então com   
+os pesos e a arquitetura da rede montada. Resolvi desafiar a rede convolutiva a reconhecer  
+algumas imagens retiradas da google e esses foram os resultados:  
+
+
+# Carros  
+
+![car](VGG16/car_output.png)  
+
+# Um Gatinho  
+
+![cat](VGG16/cat_output.png)
+
+# Um cachorro  
+
+![dog](VGG16/dog_output.png)
+
+# Um Gato vestido de Cachorro  
+
+![cat_like_dog](VGG16/cat_like_dog_output.png)  
+
+# Um telefone
+
+![phone](VGG16/phone_output.png)  
+
+# Um vaso com uma planta
+
+![plant](VGG16/plant_output.png)  
+
+# Um Beagle
+
+![beagle](VGG16/Beagle_output.png)
+
+*OBS:*  Os nomes estão ordenados no que a rede acredita ser mais próvavel
+
