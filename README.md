@@ -298,31 +298,31 @@ algumas imagens retiradas da google e esses foram os resultados:
 
 # Carros  
 
-![car](VGG16/car_output.png)  
+![car](VGG16/output_images/car_output.png)  
 
 # Um Gatinho  
 
-![cat](VGG16/cat_output.png)
+![cat](VGG16/output_images/cat_output.png)
 
 # Um cachorro  
 
-![dog](VGG16/dog_output.png)
+![dog](VGG16/output_images/dog_output.png)
 
 # Um Gato vestido de Cachorro  
 
-![cat_like_dog](VGG16/cat_like_dog_output.png)  
+![cat_like_dog](VGG16/output_images/cat_like_dog_output.png)  
 
 # Um telefone
 
-![phone](VGG16/phone_output.png)  
+![phone](VGG16/output_images/phone_output.png)  
 
 # Um vaso com uma planta
 
-![plant](VGG16/plant_output.png)  
+![plant](VGG16/output_images/plant_output.png)  
 
 # Um Beagle
 
-![beagle](VGG16/Beagle_output.png)
+![beagle](VGG16/output_images/Beagle_output.png)
 
 *OBS:*  Os nomes estão ordenados no que a rede acredita ser mais próvavel
 
